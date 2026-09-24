@@ -1,0 +1,91 @@
+{
+  "info": {
+    "_postman_id": "schoolerp-phase1-health",
+    "name": "SchoolERP API - Phase 1 (Project Setup)",
+    "description": "Postman Collection for SchoolERP Phase 1 health check and global middleware verification.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check (Positive)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        },
+        "description": "Checks the operational status of the SchoolERP backend server."
+      },
+      "response": [
+        {
+          "name": "200 OK Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"success\": true,\n  \"message\": \"SchoolERP Backend API is healthy and operational\",\n  \"data\": {\n    \"status\": \"UP\",\n    \"service\": \"schoolerp-backend\",\n    \"timestamp\": \"2026-09-24T02:02:34.435Z\",\n    \"uptime\": \"49.14s\",\n    \"environment\": \"development\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "404 Not Found (Negative)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/unknown-endpoint",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "unknown-endpoint"]
+        },
+        "description": "Tests the catch-all 404 route handler."
+      },
+      "response": [
+        {
+          "name": "404 Not Found Response",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/unknown-endpoint",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "unknown-endpoint"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"success\": false,\n  \"message\": \"Resource not found: GET /api/unknown-endpoint\",\n  \"errors\": []\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

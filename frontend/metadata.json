@@ -1,0 +1,6 @@
+{
+  "name": "SchoolERP — Small-School Management System",
+  "description": "A clean, modern, and practical administrative dashboard for school owners and admins to manage students, parents, classes, attendance, fees, and payments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
